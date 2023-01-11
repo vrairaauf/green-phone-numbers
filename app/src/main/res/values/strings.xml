@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Green Number Tunisia</string>
+    <string name="select_language">Select application language</string>
+    <string name="english_lang_string">English</string>
+    <string name="french_lang_string" >French</string>
+    <string name="arabic_lang_string" >Arabic</string>
+</resources>

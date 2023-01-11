@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:layout_marginTop="30dp"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/select_lang_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="5dp"
+        android:foregroundGravity="center_horizontal"
+        android:gravity="center_horizontal"
+        android:padding="5dp"
+        android:text="@string/select_language" />
+
+    <Button
+        android:id="@+id/english_lang_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:text="@string/english_lang_string"
+        android:textAlignment="gravity"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/french_lang_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:contentDescription="@string/french_lang_string"
+        android:text="@string/french_lang_string"
+        android:textAlignment="gravity"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/arabic_lang_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="@string/arabic_lang_string"
+        android:textAlignment="gravity"
+        android:textAllCaps="false" />
+</LinearLayout>
