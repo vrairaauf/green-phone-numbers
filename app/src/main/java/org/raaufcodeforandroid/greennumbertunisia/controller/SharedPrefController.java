@@ -66,5 +66,11 @@ public class SharedPrefController {
         return sharedPreferences.getString(KEY_BEFORE_LAST_PHONE_NUMBER, null);
     }
 
+    public boolean contain_historic(){
+        if(get_last_phone()!=null || get_before_last_phone()!=null){
+            return true;
+        }
+        return false;
+    }
 
 }

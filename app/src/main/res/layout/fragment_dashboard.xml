@@ -1,22 +1,163 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/crypt_proofs"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.dashboard.DashboardFragment">
 
-    <TextView
-        android:id="@+id/text_dashboard"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#ffffa2">
+
+                    <FrameLayout
+                        android:id="@+id/logout_button"
+                        android:layout_width="200dp"
+                        android:layout_height="200dp"
+                        android:layout_gravity="center_horizontal|center_vertical"
+                        android:background="@drawable/logout"
+                        android:foregroundGravity="center_vertical|center_horizontal" />
+
+                    <LinearLayout
+                        android:layout_width="200dp"
+                        android:layout_height="200dp"
+                        android:layout_gravity="center_horizontal|center_vertical"
+                        android:background="#ffffa2"
+                        android:foregroundGravity="center_vertical|center_horizontal"
+                        android:gravity="center_horizontal|center_vertical">
+
+                        <Spinner
+                            android:id="@+id/spinner"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:entries="@array/language_name"
+                            android:foregroundGravity="center_vertical|center_horizontal"
+                            android:gravity="center_vertical"
+                            android:textAlignment="center" />
+                    </LinearLayout>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#ffff6a">
+
+                    <RelativeLayout
+                        android:id="@+id/update_basic_data_button"
+                        android:layout_width="200dp"
+                        android:layout_height="200dp"
+                        android:layout_gravity="center_horizontal|center_vertical"
+                        android:foregroundGravity="center_vertical|center_horizontal"
+                        android:gravity="center_horizontal|center_vertical">
+
+                        <ImageButton
+                            android:id="@+id/image_update_button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/ic_sharp_update_24"
+                            android:foregroundGravity="center_vertical|center_horizontal"
+                            tools:ignore="SpeakableTextPresentCheck" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/button_green_phones"
+                        android:layout_width="200dp"
+                        android:layout_height="200dp"
+                        android:layout_gravity="center_horizontal|center_vertical"
+                        android:foregroundGravity="center_vertical|center_horizontal"
+                        android:gravity="center_horizontal|center_vertical">
+
+                        <ImageButton
+                            android:id="@+id/image_phone"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/ic_baseline_speaker_phone_24"
+                            android:foregroundGravity="center_vertical|center_horizontal"
+                            tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
+                    </RelativeLayout>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#ffffa2">
+
+                    <RelativeLayout
+                        android:id="@+id/button_read_about"
+                        android:layout_width="200dp"
+                        android:layout_height="200dp"
+                        android:layout_gravity="center_horizontal|center_vertical"
+                        android:foregroundGravity="center_vertical|center_horizontal"
+                        android:gravity="center_horizontal|center_vertical">
+
+                        <ImageButton
+                            android:id="@+id/image_policy"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/ic_twotone_security_24"
+                            android:foregroundGravity="center_vertical|center_horizontal" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/button_read_policy"
+                        android:layout_width="200dp"
+                        android:layout_height="200dp"
+                        android:layout_gravity="center_horizontal|center_vertical"
+                        android:foregroundGravity="center_vertical|center_horizontal"
+                        android:gravity="center_horizontal|center_vertical">
+
+                        <ImageButton
+                            android:id="@+id/image_security"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/ic_round_policy_24"
+                            android:foregroundGravity="center_vertical|center_horizontal" />
+                    </RelativeLayout>
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <RelativeLayout
+                        android:layout_width="200dp"
+                        android:layout_height="200dp"
+                        android:layout_gravity="center_horizontal|center_vertical"
+                        android:background="#ffff6a"
+                        android:foregroundGravity="center_vertical|center_horizontal"
+                        android:gravity="center_horizontal|center_vertical">
+
+                        <ImageButton
+                            android:id="@+id/image_crypt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/ic_baseline_lock_24"
+                            android:foregroundGravity="center_vertical|center_horizontal"
+                            tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
+                    </RelativeLayout>
+
+                </TableRow>
+            </TableLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

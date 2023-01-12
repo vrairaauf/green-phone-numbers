@@ -45,4 +45,9 @@
         <item>Ministary</item>
         <item>Controlls</item>
     </string-array>
+    <string-array name="language_name">
+        <item>English</item>
+        <item>francais</item>
+        <item>العربية</item>
+    </string-array>
 </resources>
