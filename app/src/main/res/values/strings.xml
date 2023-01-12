@@ -38,6 +38,7 @@
     <string name="ministere_interieur_phone_title">Ministry of Interior and Local Development</string>
     <string name="ministere_defense_phone_title">Ministry of National Defense</string>
     <string name="ministere_femme_phone_title">Ministry of Women, Family and Childhood Affairs</string>
+    <string name="change_lang_string">change the language</string>
     <string-array name="phone_categories">
         <item>______</item>
         <item>Hospital</item>
