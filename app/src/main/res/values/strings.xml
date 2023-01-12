@@ -2,6 +2,47 @@
     <string name="app_name">Green Number Tunisia</string>
     <string name="select_language">Select application language</string>
     <string name="english_lang_string">English</string>
-    <string name="french_lang_string" >French</string>
-    <string name="arabic_lang_string" >Arabic</string>
+    <string name="french_lang_string">French</string>
+    <string name="arabic_lang_string">Arabic</string>
+    <string name="title_activity_core">CoreActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="police_phone_title">Police Rescue</string>
+    <string name="garde_nitionale_phone_title">National Guard</string>
+    <string name="protection_civile_phone_title">"Civil Protection "</string>
+    <string name="enaach_phone_title">Recovery</string>
+    <string name="ambulance_phone_title">Ambulance</string>
+    <string name="prices_control_phone_title">Price Control</string>
+    <string name="vocal_hour_phone_title">"Talking Clock "</string>
+    <string name="details_phone_title">Guidance</string>
+    <string name="meteo_phone_title">Meteorological</string>
+    <string name="steg_phone_title"><![CDATA[Electricity & Gas Company]]></string>
+    <string name="sonede_phone_title">"Water Distribution Company "</string>
+    <string name="onas_phone_title">"Purification Bureau "</string>
+    <string name="tunisie_telecom_phone_title">Tunis Telecom</string>
+    <string name="poste_phone_title">Mail</string>
+    <string name="allo_taxi_rapide_phone_title">Alloa Fast Taxi</string>
+    <string name="allo_taxi_phone_title">Hello Taxi</string>
+    <string name="hopital_habib_thamer_phone_title">Habib Thamer hospital</string>
+    <string name="hopital_aziza_othmana_phone_title">Aziza Osmana hospital</string>
+    <string name="hopital_charl_nicole_phone_title">Charles Nicole hospital</string>
+    <string name="hopital_rabta_phone_title">Rabta hospital</string>
+    <string name="hopital_enfant_phone_title">Children hospital</string>
+    <string name="hopital_militaire_phone_title">Military hospital</string>
+    <string name="ministere_first_phone_title">Prime Ministry</string>
+    <string name="ministere_hokouma_phone_title">General Secretariat of the Government</string>
+    <string name="ministere_sport_phone_title">"Ministry of Sports "</string>
+    <string name="ministere_ijtimeia_phone_title">Ministry of Social Affairs and Solidarity</string>
+    <string name="ministere_external_phone_title">Ministry of Foreign Affairs</string>
+    <string name="ministere_interieur_phone_title">Ministry of Interior and Local Development</string>
+    <string name="ministere_defense_phone_title">Ministry of National Defense</string>
+    <string name="ministere_femme_phone_title">Ministry of Women, Family and Childhood Affairs</string>
+    <string-array name="phone_categories">
+        <item>______</item>
+        <item>Hospital</item>
+        <item>Protection</item>
+        <item>Ministary</item>
+        <item>Controlls</item>
+    </string-array>
 </resources>
