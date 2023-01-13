@@ -2,8 +2,6 @@ package org.raaufcodeforandroid.greennumbertunisia;
 
 import android.os.Bundle;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -14,16 +12,13 @@ import org.raaufcodeforandroid.greennumbertunisia.databinding.ActivityCoreBindin
 
 public class CoreActivity extends AppCompatActivity {
 
-    private ActivityCoreBinding binding;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        binding = ActivityCoreBinding.inflate(getLayoutInflater());
+        org.raaufcodeforandroid.greennumbertunisia.databinding.ActivityCoreBinding binding = ActivityCoreBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(

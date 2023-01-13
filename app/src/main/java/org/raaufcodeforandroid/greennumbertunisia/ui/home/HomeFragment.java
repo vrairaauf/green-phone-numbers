@@ -5,12 +5,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -29,15 +27,13 @@ import java.util.Set;
 public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
-    private AreaController areaController;
-    private SharedPrefController sharedPrefController;
     private RecyclerView recyclerView;
     private List<GreenPhone> phones;
     private RecyclerView.Adapter adapter;
-    HashMap<String, String> ministary_phones=new HashMap<String, String>();
-    HashMap<String, String> hospital_phones=new HashMap<String, String>();
-    HashMap<String, String> protection_phones=new HashMap<String, String>();
-    HashMap<String, String> controlls_phones=new HashMap<String, String>();
+    HashMap<String, String> ministary_phones= new HashMap<>();
+    HashMap<String, String> hospital_phones= new HashMap<>();
+    HashMap<String, String> protection_phones= new HashMap<>();
+    HashMap<String, String> controlls_phones= new HashMap<>();
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -79,27 +75,24 @@ public class HomeFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        HomeViewModel homeViewModel =
-                new ViewModelProvider(this).get(HomeViewModel.class);
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
 
 
-        return root;
+        return binding.getRoot();
     }
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        areaController=AreaController.get_instance(getContext(), getActivity());
-        sharedPrefController=SharedPrefController.get_instance(getContext());
+        AreaController areaController = AreaController.get_instance(getContext(), getActivity());
+        SharedPrefController sharedPrefController = SharedPrefController.get_instance(getContext());
         areaController.setLocal(sharedPrefController.get_language());
 
         recyclerView=binding.recyclerViewForGreenPhones;
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         phones=new ArrayList<>();
-//?attr/actionBarSiz
+
 
         binding.spinner3.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
@@ -107,8 +100,7 @@ public class HomeFragment extends Fragment {
             public void onItemSelected(AdapterView<?> parent, View view,
                                        int position, long id) {
 
-                int selected_phone = position;
-                if (selected_phone == 2) {
+                if (position == 2) {
                     phones.clear();
                     Set<String> protection_phone_names = protection_phones.keySet();
 
@@ -118,7 +110,7 @@ public class HomeFragment extends Fragment {
                     }
                     adapter=new GreenPhoneAdapter(getContext(), phones);
                     recyclerView.setAdapter(adapter);
-                } else if (selected_phone == 1) {
+                } else if (position == 1) {
                     phones.clear();
                     Set<String> hospital_phone_names = hospital_phones.keySet();
 
@@ -128,7 +120,7 @@ public class HomeFragment extends Fragment {
                     }
                     adapter=new GreenPhoneAdapter(getContext(), phones);
                     recyclerView.setAdapter(adapter);
-                } else if (selected_phone == 3) {
+                } else if (position == 3) {
                     phones.clear();
                     Set<String> ministary_phone_names = ministary_phones.keySet();
 
@@ -138,7 +130,7 @@ public class HomeFragment extends Fragment {
                     }
                     adapter=new GreenPhoneAdapter(getContext(), phones);
                     recyclerView.setAdapter(adapter);
-                } else if (selected_phone == 4) {
+                } else if (position == 4) {
                     phones.clear();
                     Set<String> controlls_phone_names = controlls_phones.keySet();
                     for (String key : controlls_phone_names) {

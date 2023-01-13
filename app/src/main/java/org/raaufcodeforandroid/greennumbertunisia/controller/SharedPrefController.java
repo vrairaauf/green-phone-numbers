@@ -11,9 +11,9 @@ public class SharedPrefController {
     private static final String KEY_BEFORE_LAST_PHONE="BEFORE_LAST_PHONE_CALLED";
     private static final String KEY_BEFORE_LAST_PHONE_NUMBER="BEFORE_LAST_PHONE_NUMBER_CALLED";
 
-    private static Context context;
+    private final Context context;
     private static SharedPrefController sharedPrefController;
-    public SharedPrefController(Context context){context=context;}
+    public SharedPrefController(Context context){this.context=context;}
 
     public static synchronized SharedPrefController get_instance(Context context){
         if(sharedPrefController==null){
@@ -67,10 +67,10 @@ public class SharedPrefController {
     }
 
     public boolean contain_historic(){
-        if(get_last_phone()!=null || get_before_last_phone()!=null){
-            return true;
-        }
-        return false;
+        return get_last_phone() != null || get_before_last_phone() != null;
+    }
+    public boolean shared_pref_contain_lang(){
+        return this.get_language()!=null;
     }
 
 }

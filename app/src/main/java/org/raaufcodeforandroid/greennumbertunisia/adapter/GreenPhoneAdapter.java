@@ -1,6 +1,7 @@
 package org.raaufcodeforandroid.greennumbertunisia.adapter;
 
 
+
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -17,12 +18,11 @@ import org.raaufcodeforandroid.greennumbertunisia.R;
 import org.raaufcodeforandroid.greennumbertunisia.model.GreenPhone;
 
 
-
 import java.util.List;
 
 public class GreenPhoneAdapter extends RecyclerView.Adapter<GreenPhoneAdapter.ViewHolder> {
-    private Context context;
-    private  List<GreenPhone> phones;
+    private final Context context;
+    private final List<GreenPhone> phones;
 
     public GreenPhoneAdapter(Context context, List listItems) {
         this.context=context;
@@ -31,7 +31,7 @@ public class GreenPhoneAdapter extends RecyclerView.Adapter<GreenPhoneAdapter.Vi
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public GreenPhoneAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View views = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.one_green_phone, viewGroup, false);
         return new ViewHolder(views);
     }
@@ -39,9 +39,9 @@ public class GreenPhoneAdapter extends RecyclerView.Adapter<GreenPhoneAdapter.Vi
 
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder viewHold, int i) {
-         GreenPhone phone = phones.get(i);
-         viewHold.name.setText(phone.getName());
+    public void onBindViewHolder(@NonNull GreenPhoneAdapter.ViewHolder viewHold, int i) {
+        GreenPhone phone = phones.get(i);
+        viewHold.name.setText(phone.getName());
         viewHold.number.setText(phone.getPhoneNumber());
 
     }
@@ -52,13 +52,12 @@ public class GreenPhoneAdapter extends RecyclerView.Adapter<GreenPhoneAdapter.Vi
     }
 
     public class ViewHolder extends  RecyclerView.ViewHolder implements  View.OnClickListener {
-        private TextView name;
-        private TextView number;
-        private ImageButton appelGreenPhone;
+        private final TextView name;
+        private final TextView number;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            appelGreenPhone = itemView.findViewById(R.id.call_green_phone);
+            ImageButton appelGreenPhone = itemView.findViewById(R.id.call_green_phone);
             appelGreenPhone.setOnClickListener(this);
             name = itemView.findViewById(R.id.green_phone_name);
             number = itemView.findViewById(R.id.green_phone_number);

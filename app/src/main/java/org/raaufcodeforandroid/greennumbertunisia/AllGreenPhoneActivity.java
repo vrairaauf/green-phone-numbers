@@ -4,10 +4,8 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -37,18 +35,11 @@ public class AllGreenPhoneActivity extends AppCompatActivity {
 
         phone_name.setText(data.getString("phone_name"));
         phone_number.setText(data.getString("phone_number"));
-        if(Build.VERSION.SDK_INT >= 23){
-            if(!checkPermission()){
+        if(!checkPermission()){
 
-                requestPermission();
-            }
+            requestPermission();
         }
-        call_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                call();
-            }
-        });
+        call_button.setOnClickListener(v -> call());
 
 
     }
@@ -67,23 +58,21 @@ public class AllGreenPhoneActivity extends AppCompatActivity {
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResult) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResult);
-        switch (requestCode) {
-            case 101:
-                call_button = findViewById(R.id.call_button_all_phones);
-                if (grantResult.length > 0) {
-                    boolean callPermission = grantResult[0] == PackageManager.PERMISSION_GRANTED;
-                    if (!callPermission) {
-                        call_button.setEnabled(false);
-                    }
-                    break;
+        if (requestCode == 101) {
+            call_button = findViewById(R.id.call_button_all_phones);
+            if (grantResult.length > 0) {
+                boolean callPermission = grantResult[0] == PackageManager.PERMISSION_GRANTED;
+                if (!callPermission) {
+                    call_button.setEnabled(false);
                 }
+            }
         }
     }
 
     /*-------------------------------------*/
     public  void  call(){
 
-        String dial="";
+        String dial;
         String phoneNumberStr=phone_number.getText().toString();
         if(!TextUtils.isEmpty(phoneNumberStr)) {
             dial = "tel:" + phoneNumberStr;
