@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AllGreenPhoneActivity">
+    tools:context=".OnePhoneToCall">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,31 +16,34 @@
             android:id="@+id/imageView42"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/republique_tunisienne" />
+            app:srcCompat="@drawable/republique_tunisienne"
+            android:contentDescription="@string/todo" />
 
         <TextView
-            android:id="@+id/phone_name_come_from_all_phone_numbers"
+            android:id="@+id/phone_name_come_from_all_phones_numbers"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="20dp"
             android:gravity="center_horizontal|center_vertical"
             android:textAlignment="center"
-            android:textSize="18dp" />
+            android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/phone_number_come_from_all_phone_numbers"
+            android:id="@+id/phone_number_come_from_all_phones_numbers"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:gravity="center_horizontal|center_vertical"
             android:textAlignment="gravity"
-            android:textSize="20dp" />
+            android:textSize="20sp" />
 
         <ImageButton
-            android:id="@+id/call_button_all_phones"
+            android:id="@+id/call_button_all_phones_numbers"
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:layout_marginTop="50dp"
-            app:srcCompat="@android:drawable/sym_action_call" />
+            android:contentDescription="TODO"
+            app:srcCompat="@android:drawable/sym_action_call"
+            tools:ignore="SpeakableTextPresentCheck,DuplicateSpeakableTextCheck,ImageContrastCheck" />
 
     </LinearLayout>
 </RelativeLayout>

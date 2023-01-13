@@ -9,11 +9,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import org.raaufcodeforandroid.greennumbertunisia.AllGreenPhoneActivity;
 import org.raaufcodeforandroid.greennumbertunisia.R;
 import org.raaufcodeforandroid.greennumbertunisia.model.GreenPhone;
 
@@ -68,11 +68,14 @@ public class GreenPhoneAdapter extends RecyclerView.Adapter<GreenPhoneAdapter.Vi
         public void onClick(View v) {
             int position = getAdapterPosition();
             GreenPhone phone = phones.get(position);
+            Toast.makeText(context, "phone name : "+phone.getName().concat("\nphone numbers : "+phone.getPhoneNumber()), Toast.LENGTH_SHORT).show();
 
             Intent intent = new Intent(v.getContext(), AllGreenPhoneActivity.class);
             intent.putExtra("phone_number", phone.getPhoneNumber());
             intent.putExtra("phone_name", phone.getName());
             context.startActivity(intent);
+
+
 
         }
 

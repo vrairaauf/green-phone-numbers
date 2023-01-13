@@ -1,6 +1,8 @@
 package org.raaufcodeforandroid.greennumbertunisia;
 
+
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -14,23 +16,24 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
-public class AllGreenPhoneActivity extends AppCompatActivity {
+public class OnePhoneToCall extends AppCompatActivity {
 
     TextView phone_name, phone_number;
     ImageButton call_button;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_all_green_phone);
+        setContentView(R.layout.activity_one_phone_to_call);
 
         Bundle data=getIntent().getExtras();
-        call_button=findViewById(R.id.call_button_all_phones);
+        call_button=findViewById(R.id.call_button_all_phones_numbers);
 
-        phone_name=findViewById(R.id.phone_name_come_from_all_phone_numbers);
+        phone_name=findViewById(R.id.phone_name_come_from_all_phones_numbers);
 
-        phone_number=findViewById(R.id.phone_number_come_from_all_phone_numbers);
+        phone_number=findViewById(R.id.phone_number_come_from_all_phones_numbers);
 
 
         phone_name.setText(data.getString("phone_name"));
@@ -50,7 +53,7 @@ public class AllGreenPhoneActivity extends AppCompatActivity {
         return permission== PackageManager.PERMISSION_GRANTED;
     }
     private void requestPermission(){
-        ActivityCompat.requestPermissions(AllGreenPhoneActivity.this, new String[]{
+        ActivityCompat.requestPermissions(OnePhoneToCall.this, new String[]{
                 Manifest.permission.CALL_PHONE,
         }, 101);
 
@@ -59,7 +62,7 @@ public class AllGreenPhoneActivity extends AppCompatActivity {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResult) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResult);
         if (requestCode == 101) {
-            call_button = findViewById(R.id.call_button_all_phones);
+            call_button = findViewById(R.id.call_button_all_phones_numbers);
             if (grantResult.length > 0) {
                 boolean callPermission = grantResult[0] == PackageManager.PERMISSION_GRANTED;
                 if (!callPermission) {
