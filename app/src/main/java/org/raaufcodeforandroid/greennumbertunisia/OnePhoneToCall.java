@@ -2,7 +2,6 @@ package org.raaufcodeforandroid.greennumbertunisia;
 
 
 import android.Manifest;
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -16,11 +15,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import org.raaufcodeforandroid.greennumbertunisia.controller.SharedPrefController;
+
 public class OnePhoneToCall extends AppCompatActivity {
 
     TextView phone_name, phone_number;
     ImageButton call_button;
-
 
 
     @Override
@@ -83,8 +83,16 @@ public class OnePhoneToCall extends AppCompatActivity {
             if (checkSelfPermission(Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
                 return;
             }
+            save_historic();
             startActivity(new Intent( Intent.ACTION_CALL, Uri.parse(dial) ));
         }
 
+    }
+    private void save_historic(){
+        SharedPrefController sharedPrefController = SharedPrefController.get_instance(getApplicationContext());
+        if(sharedPrefController.get_last_phone()!=null){
+            sharedPrefController.set_before_last_phone(sharedPrefController.get_last_phone(), sharedPrefController.get_last_phone_number());
+        }
+        sharedPrefController.set_last_called_phone(phone_name.getText().toString(), phone_number.getText().toString());
     }
 }
