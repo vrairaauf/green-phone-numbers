@@ -76,4 +76,5 @@
     <string name="error_enter_description">Make a little description for describe your services</string>
     <string name="error_enter_phone_number">Enter your phone number</string>
     <string name="error_select_yes">"Accepr the policy with cheking yes button "</string>
+    <string name="last_called_phones_string">Last called phones</string>
 </resources>

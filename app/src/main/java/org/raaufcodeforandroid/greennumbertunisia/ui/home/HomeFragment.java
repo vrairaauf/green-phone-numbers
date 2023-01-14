@@ -28,14 +28,13 @@ import java.util.Set;
 public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
-    private RecyclerView recyclerView, recyclerViewHistoric;
-    private List<GreenPhone> phones, phonesHistoric;
-    private RecyclerView.Adapter adapter, adapterHistoric;
+    private RecyclerView recyclerView;
+    private List<GreenPhone> phones;
+    private RecyclerView.Adapter adapter;
     HashMap<String, String> ministary_phones= new HashMap<>();
     HashMap<String, String> hospital_phones= new HashMap<>();
     HashMap<String, String> protection_phones= new HashMap<>();
     HashMap<String, String> controlls_phones= new HashMap<>();
-    private LinearLayout linearLayout;
     private SharedPrefController sharedPrefController;
 
     @Override
@@ -90,7 +89,6 @@ public class HomeFragment extends Fragment {
         AreaController areaController = AreaController.get_instance(getContext(), getActivity());
         SharedPrefController sharedPrefController = SharedPrefController.get_instance(getContext());
         areaController.setLocal(sharedPrefController.get_language());
-        linearLayout=binding.linearLayoutHome;
         sharedPrefController=SharedPrefController.get_instance(getContext());
 
         recyclerView=binding.recyclerViewForGreenPhones;
@@ -98,13 +96,14 @@ public class HomeFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         phones=new ArrayList<>();
 
-        recyclerViewHistoric=binding.recyclerViewForGreenPhones;
+        RecyclerView recyclerViewHistoric = binding.recyclerViewerHistoric;
         recyclerViewHistoric.setHasFixedSize(true);
         recyclerViewHistoric.setLayoutManager(new LinearLayoutManager(getContext()));
-        phonesHistoric=new ArrayList<>();
+        List<GreenPhone> phonesHistoric = new ArrayList<>();
 
         if(sharedPrefController.contain_historic()){
-
+            binding.textViewHistoric.setVisibility(View.VISIBLE);
+            recyclerViewHistoric.setVisibility(View.VISIBLE);
             GreenPhone greenPhone = new GreenPhone(sharedPrefController.get_last_phone(),  sharedPrefController.get_last_phone_number());
             phonesHistoric.add(greenPhone);
             if(sharedPrefController.get_before_last_phone()!=null)
@@ -112,7 +111,7 @@ public class HomeFragment extends Fragment {
                 GreenPhone beforeGreenPhone = new GreenPhone(sharedPrefController.get_before_last_phone(),  sharedPrefController.get_before_last_phone_number());
                 phonesHistoric.add(greenPhone);
             }
-            adapterHistoric=new GreenPhoneAdapter(getContext(), phonesHistoric);
+            RecyclerView.Adapter adapterHistoric = new GreenPhoneAdapter(getContext(), phonesHistoric);
             recyclerViewHistoric.setAdapter(adapterHistoric);
         }
         binding.spinner3.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {

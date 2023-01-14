@@ -17,6 +17,8 @@ import androidx.core.content.ContextCompat;
 
 import org.raaufcodeforandroid.greennumbertunisia.controller.SharedPrefController;
 
+import java.util.Objects;
+
 public class OnePhoneToCall extends AppCompatActivity {
 
     TextView phone_name, phone_number;
@@ -90,7 +92,7 @@ public class OnePhoneToCall extends AppCompatActivity {
     }
     private void save_historic(){
         SharedPrefController sharedPrefController = SharedPrefController.get_instance(getApplicationContext());
-        if(sharedPrefController.get_last_phone()!=null){
+        if(sharedPrefController.get_last_phone()!=null && !Objects.equals(sharedPrefController.get_last_phone_number(), phone_number.getText().toString())){
             sharedPrefController.set_before_last_phone(sharedPrefController.get_last_phone(), sharedPrefController.get_last_phone_number());
         }
         sharedPrefController.set_last_called_phone(phone_name.getText().toString(), phone_number.getText().toString());

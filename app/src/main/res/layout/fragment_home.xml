@@ -1,38 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.home.HomeFragment" >
+    tools:context=".ui.home.HomeFragment">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
         <LinearLayout
-            android:id="@+id/linear_layout_home"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#ffffa2"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
-            <Spinner
-                android:id="@+id/spinner3"
+            <TextView
+                android:id="@+id/text_view_historic"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                android:entries="@array/phone_categories"
-                android:paddingLeft="15dp" />
+                android:layout_height="wrap_content"
+                android:text="@string/last_called_phones_string"
+                android:visibility="gone" />
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_viewer_historic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:id="@+id/linear_layout_home"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ffffa2"
+                android:orientation="horizontal">
+
+                <Spinner
+                    android:id="@+id/spinner3"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:entries="@array/phone_categories"
+                    android:paddingLeft="15dp" />
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view_for_green_phones"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="80dp" />
         </LinearLayout>
+    </ScrollView>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_view_for_green_phones"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="80dp" />
-    </LinearLayout>
-</LinearLayout>
+</FrameLayout>

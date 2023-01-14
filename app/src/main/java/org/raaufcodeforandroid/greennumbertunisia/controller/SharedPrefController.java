@@ -67,7 +67,7 @@ public class SharedPrefController {
     }
 
     public boolean contain_historic(){
-        return get_last_phone() != null || get_before_last_phone() != null;
+        return get_last_phone() != null ;
     }
     public boolean shared_pref_contain_lang(){
         return this.get_language()!=null;
