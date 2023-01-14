@@ -70,4 +70,10 @@
     <string name="radio_button_no_string">No</string>
     <string name="text_view_accept_policy_string">Accept policy ?</string>
     <string name="add_business_phone_number_string">Add my phone number</string>
+    <string name="why_select_categorie_string">Select the category of the business for more better search</string>
+    <string name="error_select_category">Select a category for your business</string>
+    <string name="error_enter_name">Enter your name</string>
+    <string name="error_enter_description">Make a little description for describe your services</string>
+    <string name="error_enter_phone_number">Enter your phone number</string>
+    <string name="error_select_yes">"Accepr the policy with cheking yes button "</string>
 </resources>

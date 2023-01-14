@@ -77,8 +77,10 @@
                     android:foregroundGravity="center_vertical|center_horizontal"
                     android:gravity="center_horizontal|center_vertical"
                     android:inputType="textPersonName"
+                    android:maxLength="120"
                     android:textAlignment="gravity"
-                    android:textDirection="locale" />
+                    android:textDirection="locale"
+                    tools:ignore="TouchTargetSizeCheck" />
             </LinearLayout>
 
             <TextView
@@ -106,7 +108,8 @@
                 android:gravity="center_horizontal|center_vertical"
                 android:inputType="textMultiLine"
                 android:textAlignment="gravity"
-                android:textDirection="locale" />
+                android:textDirection="locale"
+                tools:ignore="SpeakableTextPresentCheck" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -139,10 +142,12 @@
                     android:gravity="center_horizontal|center_vertical"
                     android:inputType="phone"
                     android:textAlignment="gravity"
-                    android:textDirection="locale" />
+                    android:textDirection="locale"
+                    tools:ignore="TouchTargetSizeCheck" />
             </LinearLayout>
 
             <ScrollView
+                android:id="@+id/scroll_view_policy"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
                 android:layout_marginTop="20dp">
@@ -196,12 +201,26 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_margin="8dp"
+                                android:enabled="false"
                                 android:text="@string/radio_button_no_string" />
                         </LinearLayout>
 
                     </RadioGroup>
                 </LinearLayout>
             </ScrollView>
+
+            <TextView
+                android:id="@+id/edit_text_error_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:foregroundGravity="center_vertical|center_horizontal"
+                android:gravity="center_horizontal|center_vertical"
+                android:padding="8dp"
+                android:textAllCaps="false"
+                android:textColor="@color/design_default_color_error"
+                android:textSize="16sp" />
 
             <Button
                 android:id="@+id/button_add_business_phone_number"

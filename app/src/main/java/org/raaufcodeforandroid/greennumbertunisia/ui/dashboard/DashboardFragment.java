@@ -6,12 +6,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.fragment.NavHostFragment;
 
-
+import org.raaufcodeforandroid.greennumbertunisia.R;
 import org.raaufcodeforandroid.greennumbertunisia.controller.AreaController;
 import org.raaufcodeforandroid.greennumbertunisia.controller.SharedPrefController;
 import org.raaufcodeforandroid.greennumbertunisia.databinding.FragmentDashboardBinding;
@@ -75,6 +75,9 @@ public class DashboardFragment extends Fragment {
             }
 
         });
+
+        binding.imageButtonAddMyBusiness.setOnClickListener(v -> NavHostFragment.findNavController(DashboardFragment.this)
+                .navigate(R.id.action_navigation_dashboard_to_addMyBusinessFragment));
     }
 
     @Override
