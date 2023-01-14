@@ -32,36 +32,40 @@ public class AddMyBusinessFragment extends Fragment {
         });
 
 
-        String category=binding.spinnerBusinessCategories.getSelectedItem().toString();
-        String name=binding.editTextName.getText().toString();
-        String description=binding.editTextBusinessDescribe.getText().toString();
-        String phone_number=binding.editTextPhone.getText().toString();
+       binding.buttonAddBusinessPhoneNumber.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               String category=binding.spinnerBusinessCategories.getSelectedItem().toString();
+               String name=binding.editTextName.getText().toString();
+               String description=binding.editTextBusinessDescribe.getText().toString();
+               String phone_number=binding.editTextPhone.getText().toString();
 
-        boolean yes=binding.radioButtonYes.isChecked();
+               boolean yes=binding.radioButtonYes.isChecked();
 
-        if(category=="None"){
-            binding.spinnerBusinessCategories.setFocusable(true);
-            binding.editTextErrorDetails.setText(getResources().getString(R.string.error_select_category));
-        }else if(name.isEmpty() || name.length()<8){
-            binding.editTextErrorDetails.setText("");
-            binding.editTextName.setFocusable(true);
-            binding.editTextErrorDetails.setText(getResources().getString(R.string.error_enter_name));
-        }else if(description.isEmpty() || description.length()<25){
-            binding.editTextErrorDetails.setText("");
-            binding.editTextBusinessDescribe.setFocusable(true);
-            binding.editTextErrorDetails.setText(getResources().getString(R.string.error_enter_description));
-        }else if(phone_number.isEmpty() ){
-            binding.editTextErrorDetails.setText("");
-            binding.editTextPhone.setFocusable(true);
-            binding.editTextErrorDetails.setText(getResources().getString(R.string.error_enter_phone_number));
-        }else if(!yes){
-            binding.editTextErrorDetails.setText("");
-            binding.scrollViewPolicy.setFocusable(true);
-            binding.editTextErrorDetails.setText(getResources().getString(R.string.error_select_yes));
-        }else{
-            binding.editTextErrorDetails.setText("");
-            binding.buttonAddBusinessPhoneNumber.setEnabled(true);
-        }
+               if(category=="None"){
+                   binding.spinnerBusinessCategories.setFocusable(true);
+                   binding.editTextErrorDetails.setText(getResources().getString(R.string.error_select_category));
+               }else if(name.isEmpty() || name.length()<8){
+                   binding.editTextErrorDetails.setText("");
+                   binding.editTextName.setFocusable(true);
+                   binding.editTextErrorDetails.setText(getResources().getString(R.string.error_enter_name));
+               }else if(description.isEmpty() || description.length()<25){
+                   binding.editTextErrorDetails.setText("");
+                   binding.editTextBusinessDescribe.setFocusable(true);
+                   binding.editTextErrorDetails.setText(getResources().getString(R.string.error_enter_description));
+               }else if(phone_number.isEmpty() ){
+                   binding.editTextErrorDetails.setText("");
+                   binding.editTextPhone.setFocusable(true);
+                   binding.editTextErrorDetails.setText(getResources().getString(R.string.error_enter_phone_number));
+               }else if(!yes){
+                   binding.editTextErrorDetails.setText("");
+                   binding.scrollViewPolicy.setFocusable(true);
+                   binding.editTextErrorDetails.setText(getResources().getString(R.string.error_select_yes));
+               }else{
+                   binding.editTextErrorDetails.setText("");
+               }
+           }
+       });
 
 
 

@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -27,13 +28,15 @@ import java.util.Set;
 public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
-    private RecyclerView recyclerView;
-    private List<GreenPhone> phones;
-    private RecyclerView.Adapter adapter;
+    private RecyclerView recyclerView, recyclerViewHistoric;
+    private List<GreenPhone> phones, phonesHistoric;
+    private RecyclerView.Adapter adapter, adapterHistoric;
     HashMap<String, String> ministary_phones= new HashMap<>();
     HashMap<String, String> hospital_phones= new HashMap<>();
     HashMap<String, String> protection_phones= new HashMap<>();
     HashMap<String, String> controlls_phones= new HashMap<>();
+    private LinearLayout linearLayout;
+    private SharedPrefController sharedPrefController;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -87,13 +90,31 @@ public class HomeFragment extends Fragment {
         AreaController areaController = AreaController.get_instance(getContext(), getActivity());
         SharedPrefController sharedPrefController = SharedPrefController.get_instance(getContext());
         areaController.setLocal(sharedPrefController.get_language());
+        linearLayout=binding.linearLayoutHome;
+        sharedPrefController=SharedPrefController.get_instance(getContext());
 
         recyclerView=binding.recyclerViewForGreenPhones;
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         phones=new ArrayList<>();
 
+        recyclerViewHistoric=binding.recyclerViewForGreenPhones;
+        recyclerViewHistoric.setHasFixedSize(true);
+        recyclerViewHistoric.setLayoutManager(new LinearLayoutManager(getContext()));
+        phonesHistoric=new ArrayList<>();
 
+        if(sharedPrefController.contain_historic()){
+
+            GreenPhone greenPhone = new GreenPhone(sharedPrefController.get_last_phone(),  sharedPrefController.get_last_phone_number());
+            phonesHistoric.add(greenPhone);
+            if(sharedPrefController.get_before_last_phone()!=null)
+            {
+                GreenPhone beforeGreenPhone = new GreenPhone(sharedPrefController.get_before_last_phone(),  sharedPrefController.get_before_last_phone_number());
+                phonesHistoric.add(greenPhone);
+            }
+            adapterHistoric=new GreenPhoneAdapter(getContext(), phonesHistoric);
+            recyclerViewHistoric.setAdapter(adapterHistoric);
+        }
         binding.spinner3.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
             @Override
