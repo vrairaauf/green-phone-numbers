@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -109,7 +108,7 @@ public class HomeFragment extends Fragment {
             if(sharedPrefController.get_before_last_phone()!=null)
             {
                 GreenPhone beforeGreenPhone = new GreenPhone(sharedPrefController.get_before_last_phone(),  sharedPrefController.get_before_last_phone_number());
-                phonesHistoric.add(greenPhone);
+                phonesHistoric.add(beforeGreenPhone);
             }
             RecyclerView.Adapter adapterHistoric = new GreenPhoneAdapter(getContext(), phonesHistoric);
             recyclerViewHistoric.setAdapter(adapterHistoric);

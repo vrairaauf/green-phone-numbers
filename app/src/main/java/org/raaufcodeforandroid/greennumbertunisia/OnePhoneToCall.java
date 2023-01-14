@@ -21,9 +21,9 @@ import java.util.Objects;
 
 public class OnePhoneToCall extends AppCompatActivity {
 
-    TextView phone_name, phone_number;
-    ImageButton call_button;
-
+    private TextView phone_name, phone_number;
+    private ImageButton call_button;
+    private static final int REQUEST_CODE_CALL_PERMISSION=101;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,12 +41,9 @@ public class OnePhoneToCall extends AppCompatActivity {
         phone_name.setText(data.getString("phone_name"));
         phone_number.setText(data.getString("phone_number"));
         if(!checkPermission()){
-
             requestPermission();
         }
         call_button.setOnClickListener(v -> call());
-
-
     }
 
 
@@ -54,16 +51,16 @@ public class OnePhoneToCall extends AppCompatActivity {
         int permission = ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CALL_PHONE);
         return permission== PackageManager.PERMISSION_GRANTED;
     }
+
     private void requestPermission(){
         ActivityCompat.requestPermissions(OnePhoneToCall.this, new String[]{
                 Manifest.permission.CALL_PHONE,
-        }, 101);
-
+        }, REQUEST_CODE_CALL_PERMISSION);
     }
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResult) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResult);
-        if (requestCode == 101) {
+        if (requestCode == REQUEST_CODE_CALL_PERMISSION) {
             call_button = findViewById(R.id.call_button_all_phones_numbers);
             if (grantResult.length > 0) {
                 boolean callPermission = grantResult[0] == PackageManager.PERMISSION_GRANTED;
@@ -81,7 +78,6 @@ public class OnePhoneToCall extends AppCompatActivity {
         String phoneNumberStr=phone_number.getText().toString();
         if(!TextUtils.isEmpty(phoneNumberStr)) {
             dial = "tel:" + phoneNumberStr;
-
             if (checkSelfPermission(Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
                 return;
             }

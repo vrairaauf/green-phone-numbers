@@ -13,7 +13,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
             <TextView
@@ -49,7 +49,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_view_for_green_phones"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_marginBottom="80dp" />
         </LinearLayout>
     </ScrollView>
