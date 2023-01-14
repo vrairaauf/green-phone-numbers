@@ -43,6 +43,8 @@ public class DashboardFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        binding.imageButtonAddMyBusiness.setOnClickListener(v -> NavHostFragment.findNavController(DashboardFragment.this)
+                .navigate(R.id.action_navigation_dashboard_to_addMyBusinessFragment));
         int selectedLang;
         String currentlanguage=sharedPrefController.get_language();
         if(currentlanguage.equals("en"))
@@ -76,8 +78,7 @@ public class DashboardFragment extends Fragment {
 
         });
 
-        binding.imageButtonAddMyBusiness.setOnClickListener(v -> NavHostFragment.findNavController(DashboardFragment.this)
-                .navigate(R.id.action_navigation_dashboard_to_addMyBusinessFragment));
+
     }
 
     @Override

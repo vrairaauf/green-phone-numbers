@@ -22,7 +22,7 @@
                 android:textDirection="locale">
 
                 <TextView
-                    android:id="@+id/textView"
+                    android:id="@+id/textview_category"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal|center_vertical"
@@ -227,6 +227,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="35dp"
+                android:enabled="false"
                 android:text="@string/add_business_phone_number_string"
                 android:textAllCaps="false"
                 android:textSize="24sp" />

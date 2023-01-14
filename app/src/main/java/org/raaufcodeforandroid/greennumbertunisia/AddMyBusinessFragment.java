@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import org.raaufcodeforandroid.greennumbertunisia.databinding.FragmentAddMyBusinessBinding;
+import org.raaufcodeforandroid.greennumbertunisia.databinding.FragmentDashboardBinding;
 
 
 public class AddMyBusinessFragment extends Fragment {
@@ -26,9 +27,11 @@ public class AddMyBusinessFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        binding.spinnerBusinessCategories.setOnClickListener(v -> {
+        binding.textviewCategory.setOnClickListener(v -> {
             Toast.makeText(getContext(), getResources().getString(R.string.why_select_categorie_string), Toast.LENGTH_SHORT).show();
         });
+
+
         String category=binding.spinnerBusinessCategories.getSelectedItem().toString();
         String name=binding.editTextName.getText().toString();
         String description=binding.editTextBusinessDescribe.getText().toString();
@@ -74,6 +77,7 @@ public class AddMyBusinessFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_add_my_business, container, false);
+        binding = FragmentAddMyBusinessBinding.inflate(inflater, container, false);
+        return binding.getRoot();
     }
 }
