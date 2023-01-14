@@ -15,11 +15,24 @@
         android:id="@+id/navigation_dashboard"
         android:name="org.raaufcodeforandroid.greennumbertunisia.ui.dashboard.DashboardFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_dashboard" >
+        <action
+            android:id="@+id/action_navigation_dashboard_to_addMyBusinessFragment"
+            app:destination="@id/addMyBusinessFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="org.raaufcodeforandroid.greennumbertunisia.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+    <fragment
+        android:id="@+id/addMyBusinessFragment"
+        android:name="org.raaufcodeforandroid.greennumbertunisia.AddMyBusinessFragment"
+        android:label="fragment_add_my_business"
+        tools:layout="@layout/fragment_add_my_business" >
+        <action
+            android:id="@+id/action_addMyBusinessFragment_to_navigation_dashboard"
+            app:destination="@id/navigation_dashboard" />
+    </fragment>
 </navigation>
