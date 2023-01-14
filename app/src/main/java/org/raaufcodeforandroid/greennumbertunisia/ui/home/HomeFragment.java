@@ -34,7 +34,6 @@ public class HomeFragment extends Fragment {
     HashMap<String, String> hospital_phones= new HashMap<>();
     HashMap<String, String> protection_phones= new HashMap<>();
     HashMap<String, String> controlls_phones= new HashMap<>();
-    private SharedPrefController sharedPrefController;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {

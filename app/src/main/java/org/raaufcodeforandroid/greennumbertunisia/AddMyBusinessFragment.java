@@ -1,18 +1,16 @@
 package org.raaufcodeforandroid.greennumbertunisia;
 
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
 import org.raaufcodeforandroid.greennumbertunisia.databinding.FragmentAddMyBusinessBinding;
-import org.raaufcodeforandroid.greennumbertunisia.databinding.FragmentDashboardBinding;
 
 
 public class AddMyBusinessFragment extends Fragment {
@@ -27,43 +25,38 @@ public class AddMyBusinessFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        binding.textviewCategory.setOnClickListener(v -> {
-            Toast.makeText(getContext(), getResources().getString(R.string.why_select_categorie_string), Toast.LENGTH_SHORT).show();
-        });
+        binding.textviewCategory.setOnClickListener(v -> Toast.makeText(getContext(), getResources().getString(R.string.why_select_categorie_string), Toast.LENGTH_SHORT).show());
 
 
-       binding.buttonAddBusinessPhoneNumber.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-               String category=binding.spinnerBusinessCategories.getSelectedItem().toString();
-               String name=binding.editTextName.getText().toString();
-               String description=binding.editTextBusinessDescribe.getText().toString();
-               String phone_number=binding.editTextPhone.getText().toString();
+       binding.buttonAddBusinessPhoneNumber.setOnClickListener(v -> {
+           String category=binding.spinnerBusinessCategories.getSelectedItem().toString();
+           String name=binding.editTextName.getText().toString();
+           String description=binding.editTextBusinessDescribe.getText().toString();
+           String phone_number=binding.editTextPhone.getText().toString();
 
-               boolean yes=binding.radioButtonYes.isChecked();
+           boolean yes=binding.radioButtonYes.isChecked();
 
-               if(category=="None"){
-                   binding.spinnerBusinessCategories.setFocusable(true);
-                   binding.editTextErrorDetails.setText(getResources().getString(R.string.error_select_category));
-               }else if(name.isEmpty() || name.length()<8){
-                   binding.editTextErrorDetails.setText("");
-                   binding.editTextName.setFocusable(true);
-                   binding.editTextErrorDetails.setText(getResources().getString(R.string.error_enter_name));
-               }else if(description.isEmpty() || description.length()<25){
-                   binding.editTextErrorDetails.setText("");
-                   binding.editTextBusinessDescribe.setFocusable(true);
-                   binding.editTextErrorDetails.setText(getResources().getString(R.string.error_enter_description));
-               }else if(phone_number.isEmpty() ){
-                   binding.editTextErrorDetails.setText("");
-                   binding.editTextPhone.setFocusable(true);
-                   binding.editTextErrorDetails.setText(getResources().getString(R.string.error_enter_phone_number));
-               }else if(!yes){
-                   binding.editTextErrorDetails.setText("");
-                   binding.scrollViewPolicy.setFocusable(true);
-                   binding.editTextErrorDetails.setText(getResources().getString(R.string.error_select_yes));
-               }else{
-                   binding.editTextErrorDetails.setText("");
-               }
+           if(category.equals("None")){
+               binding.spinnerBusinessCategories.setFocusable(true);
+               binding.editTextErrorDetails.setText(getResources().getString(R.string.error_select_category));
+           }else if(name.isEmpty() || name.length()<8){
+               binding.editTextErrorDetails.setText("");
+               binding.editTextName.setFocusable(true);
+               binding.editTextErrorDetails.setText(getResources().getString(R.string.error_enter_name));
+           }else if(description.isEmpty() || description.length()<25){
+               binding.editTextErrorDetails.setText("");
+               binding.editTextBusinessDescribe.setFocusable(true);
+               binding.editTextErrorDetails.setText(getResources().getString(R.string.error_enter_description));
+           }else if(phone_number.isEmpty() ){
+               binding.editTextErrorDetails.setText("");
+               binding.editTextPhone.setFocusable(true);
+               binding.editTextErrorDetails.setText(getResources().getString(R.string.error_enter_phone_number));
+           }else if(!yes){
+               binding.editTextErrorDetails.setText("");
+               binding.scrollViewPolicy.setFocusable(true);
+               binding.editTextErrorDetails.setText(getResources().getString(R.string.error_select_yes));
+           }else{
+               binding.editTextErrorDetails.setText("");
            }
        });
 
@@ -78,7 +71,7 @@ public class AddMyBusinessFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding = FragmentAddMyBusinessBinding.inflate(inflater, container, false);
